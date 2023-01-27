@@ -23,3 +23,4 @@ if __name__ == "__main__":
     ]
     print(tab_handler.calculate_tab(table_1))
     print(tab_handler.calculate_tab(table_2))
+    print(product_handler.menu_report())
