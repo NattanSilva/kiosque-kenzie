@@ -8,11 +8,11 @@ def find_product_price(id: int):
 
 
 def calculate_tab(lista: list):
-    subtotal = {"subtotal": 0}
+    subtotal = {"subtotal": ""}
     total = 0
     for item in lista:
         total += (
             find_product_price(int(item["_id"])) * int(item["amount"])
             )
-    subtotal["subtotal"] = round(total, 2)
+    subtotal["subtotal"] += f"${round(total, 2)}"
     return subtotal
