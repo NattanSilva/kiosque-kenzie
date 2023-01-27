@@ -46,24 +46,31 @@ def includes(vetor, element):
     return count > 0
 
 
-def most_commom_type():
-    types = []
+def count_types(types):
     count = 0
     types_contados = {}
-    maior = 0
-    maior_tipo = ""
-    for item in products:
-        if not includes(types, item["type"]):
-            types.append(item["type"])
     for value in types:
         for item in products:
             if item["type"] == value:
                 count += 1
         types_contados[value] = count
         count = 0
-    for key in types_contados:
-        if types_contados[key] > maior:
-            maior = types_contados[key]
+    return types_contados
+
+
+def most_commom_type():
+    types = []
+    maior = 0
+    maior_tipo = ""
+    for item in products:
+        if not includes(types, item["type"]):
+            types.append(item["type"])
+
+    tipos_contados = count_types(types)
+
+    for key in tipos_contados:
+        if tipos_contados[key] > maior:
+            maior = tipos_contados[key]
             maior_tipo = key
     return maior_tipo
 
